@@ -1,0 +1,8 @@
+[package]
+name = "blots"
+version = "0.1.0"
+authors = ["lf94"]
+
+[dependencies]
+image = "0.18.0"
+lazy_static = "1.0"
