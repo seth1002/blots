@@ -13,6 +13,19 @@ The Blots format aims to be simple for self-preservation. Implementation can be 
 
 It achieves these with simple XOR parity bits, an "alignment component" located at the top left, no use of black, and storing 2-bits per dot using 4 colors: red, green, blue and white (or absence of ink).
 
+The format is also semi "anti-fold", meaning folding should not cause too many problems. This is because of how data blocks are arranged:
+
+```
+[a1][a2][p2]
+[p1][b1][b2]
+```
+
+Each byte is broken into 4 pieces, and then those 4 pieces divided into two groups: a and b.
+
+Each group has its own parity bits, for reconstruction.
+
+Because of the way they are arranged, folding may destroy some data on one line, but not the other.
+
 # Caveat
 While I have implemented an encoder, **I have had no time implementing a decoder**.
 
